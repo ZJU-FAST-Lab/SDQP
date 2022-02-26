@@ -113,7 +113,7 @@ public:
                                                  pWork->data->n);
     }
 
-private:
+// private:
     OSQPWorkspace *pWork;
     OSQPSettings *pSettings;
     OSQPData *pData;
