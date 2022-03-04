@@ -298,16 +298,25 @@ namespace sdqp
         Eigen::VectorXi perm(n - 1);
         Eigen::VectorXi next(n);
         Eigen::VectorXi prev(n + 1);
-        rand_permutation(n - 1, perm.data());
-        prev(0) = 0;
-        next(0) = perm(0) + 1;
-        prev(perm(0) + 1) = 0;
-        for (int i = 0; i < n - 2; ++i)
+        if (n > 1)
         {
-            next(perm(i) + 1) = perm(i + 1) + 1;
-            prev(perm(i + 1) + 1) = perm(i) + 1;
+            rand_permutation(n - 1, perm.data());
+            prev(0) = 0;
+            next(0) = perm(0) + 1;
+            prev(perm(0) + 1) = 0;
+            for (int i = 0; i < n - 2; ++i)
+            {
+                next(perm(i) + 1) = perm(i + 1) + 1;
+                prev(perm(i + 1) + 1) = perm(i) + 1;
+            }
+            next(perm(n - 2) + 1) = n;
         }
-        next(perm(n - 2) + 1) = n;
+        else
+        {
+            prev(0) = 0;
+            next(0) = 1;
+            next(1) = 1;
+        }
 
         Eigen::Matrix<double, d + 1, -1, Eigen::ColMajor> halves(d + 1, n);
         Eigen::VectorXd work((n + 2) * (d + 2) * (d - 1) / 2 + 1 - d);
