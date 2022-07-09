@@ -17,7 +17,7 @@ SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time
 If our lib helps your research, please cite us 
 ```
 @misc{WANG2022SDQP,
-    title={{SDQP: Linear-Complexity Small-Dimensional Strictly Convex Quadratic Programming}}, 
+    title={{SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time}}, 
     author={Wang, Zhepei and Gao, Fei}, 
     year={2022},
     url={https://github.com/ZJU-FAST-Lab}
