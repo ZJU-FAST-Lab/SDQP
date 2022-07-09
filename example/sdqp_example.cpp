@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
     std::cout << "optimal sol: " << x.transpose() << std::endl;
     std::cout << "optimal obj: " << minobj << std::endl;
-    std::cout << "optimal conv: " << (A * x - b).maxCoeff() << std::endl;
+    std::cout << "cons precision: " << (A * x - b).maxCoeff() << std::endl;
 
     return 0;
 }
