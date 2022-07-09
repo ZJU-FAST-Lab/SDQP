@@ -20,7 +20,7 @@ If our lib helps your research, please cite us
     title={{SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time}}, 
     author={Wang, Zhepei and Gao, Fei}, 
     year={2022},
-    url={https://github.com/ZJU-FAST-Lab}
+    url={https://github.com/ZJU-FAST-Lab/SDQP}
 }
 ```
 
