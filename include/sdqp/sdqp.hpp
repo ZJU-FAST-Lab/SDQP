@@ -1,3 +1,27 @@
+/*
+    MIT License
+
+    Copyright (c) 2022 Zhepei Wang (wangzhepei@live.com)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+*/
+
 #ifndef SDQP_HPP
 #define SDQP_HPP
 
@@ -115,11 +139,6 @@ namespace sdqp
                         int *next,
                         int *prev)
     {
-        // for (int i = 0; i < d; ++i)
-        // {
-        //     printf("CCCCCCCCCCC");
-        // }
-        // printf("%d\n", d);
         int status = MINIMUM;
         set_zero<d>(opt);
         if (m <= 0)
@@ -138,17 +157,10 @@ namespace sdqp
 
             if (dot<d>(opt, plane_i) + plane_i[d] > (d + 1) * eps)
             {
-                // printf("%d", d);
-                // for (int j = 0; j < d; ++j)
-                // {
-                //     printf("DDDDDDDDDDD");
-                // }
-                // printf("%d\n", i);
                 const double s = sqr_norm<d>(plane_i);
 
                 if (s < (d + 1) * eps * eps)
                 {
-                    // printf("EEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
                     return INFEASIBLE;
                 }
 
@@ -198,25 +210,9 @@ namespace sdqp
                     opt[j] += j != id ? new_opt[k] + reflx[j] * coeff : reflx[j] * coeff;
                 }
 
-                // for (int PP = 0; PP != i; PP = next[PP])
-                // {
-                //     const double *plane_PP = halves + PP * (d + 1);
-
-                //     if (dot<d>(opt, plane_PP) + plane_PP[d] > (d + 1) * eps)
-                //     {
-                //         printf("%dERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR%d, %lf\n", d, PP, dot<d>(opt, plane_PP) + plane_PP[d]);
-                //     }
-                // }
-
                 i = move_to_front(i, next, prev);
             }
         }
-
-        // for (int i = 0; i < d; ++i)
-        // {
-        //     printf("==========");
-        // }
-        // printf("%d\n", d);
 
         return status;
     }
@@ -230,7 +226,6 @@ namespace sdqp
                            int *next,
                            int *prev)
     {
-        // printf("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC%d\n", 1);
         opt[0] = 0.0;
         bool l = false;
         bool r = false;
@@ -337,6 +332,12 @@ namespace sdqp
 
         return minimum;
     }
+
+    /**
+     * minimize     0.5 x' Q x + c' x
+     * subject to       A x <= b
+     * Q must be positive definite
+     **/
 
     template <int d>
     inline double sdqp(const Eigen::Matrix<double, d, d> &Q,
