@@ -1,6 +1,6 @@
 # SDQP
 
-SDQP: Linear-Complexity Small-Dimensional Strictly Convex Quadratic Programming
+SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time
 
 # About
 
