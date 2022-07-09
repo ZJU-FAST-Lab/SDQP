@@ -8,7 +8,7 @@ SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time
 
 2. The speed is faster than most numerical solvers in small-dimensional LP (<10) with a large constraints number (>100).
 
-3. This solver computes exact solutions or report infeasibility.
+3. This solver computes __exact solutions or report infeasibility__.
 
 4. This solver generalizes [Seidel's algorithm](https://link.springer.com/article/10.1007/BF02574699) __from LP to strictly convex QP__.
 
