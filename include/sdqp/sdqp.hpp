@@ -171,6 +171,7 @@ namespace sdqp
                     continue;
                 }
 
+                // stable Householder reflection
                 const int id = max_abs<d>(opt);
                 const double xnorm = std::sqrt(sqr_norm<d>(opt));
                 cpy<d>(opt, reflx);
