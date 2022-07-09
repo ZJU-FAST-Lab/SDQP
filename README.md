@@ -10,7 +10,7 @@ SDQP: Small-Dimensional Strictly Convex Quadratic Programming in Linear Time
 
 3. This solver computes exact solutions or report infeasibility.
 
-4. This solver generalizes [Seidel's algorithm](https://link.springer.com/article/10.1007/BF02574699) from LP to strictly convex QP.
+4. This solver generalizes [Seidel's algorithm](https://link.springer.com/article/10.1007/BF02574699) __from LP to strictly convex QP__.
 
 4. This solver is very elegant thus only [a header file](https://github.com/ZJU-FAST-Lab/SDQP/blob/main/include/sdqp/sdqp.hpp) with less than 400 lines is all you need.
 
