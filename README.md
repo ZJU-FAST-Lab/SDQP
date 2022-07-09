@@ -31,7 +31,7 @@ To solve a linear programming:
         min 0.5 x' Q x + c' x,
         s.t. A x <= b,
 
-where x and c are d-dimensional vectors, Q an d\*d positive definite matrix, b an m-dimensional vector, A an m\*d matrix. It is assumed that d is small (<10) while m can be arbitrary value (1<= m <= 1e+8).
+where x and c are d-dimensional vectors, Q an dxd positive definite matrix, b an m-dimensional vector, A an mxd matrix. It is assumed that d is small (<10) while m can be arbitrary value (1<= m <= 1e+8).
 
 Only one function is all you need:
 
