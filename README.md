@@ -58,6 +58,8 @@ Output:
 
 1. Seidel, R., 1991. Small-dimensional linear programming and convex hulls made easy. Discrete & Computational Geometry, 6(3), pp.423-434.
 
-# Maintaince
+# Maintaince and Ack
+
+Thank Zijie Chen for fixing the conversion from QP to minimum norm.
 
 If any bug, please contact [Zhepei Wang](https://zhepeiwang.github.io/) (<wangzhepei@live.com>).
