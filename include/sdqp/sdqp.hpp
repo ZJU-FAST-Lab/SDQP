@@ -353,18 +353,14 @@ namespace sdqp
             return INFINITY;
         }
 
-        const Eigen::Matrix<double, -1, d> As = llt.matrixLLT()
-                                                    .template triangularView<Eigen::Upper>()
-                                                    .template solve<Eigen::OnTheRight>(A);
+        const Eigen::Matrix<double, -1, d> As = llt.matrixU().template solve<Eigen::OnTheRight>(A);
         const Eigen::Matrix<double, d, 1> v = llt.solve(c);
         const Eigen::Matrix<double, -1, 1> bs = A * v + b;
 
         double minimum = sdmn<d>(As, bs, x);
         if (!std::isinf(minimum))
         {
-            llt.matrixLLT()
-                .template triangularView<Eigen::Upper>()
-                .template solveInPlace<Eigen::OnTheLeft>(x);
+            llt.matrixU().template solveInPlace<Eigen::OnTheLeft>(x);
             x -= v;
             minimum = 0.5 * (Q * x).dot(x) + c.dot(x);
         }
